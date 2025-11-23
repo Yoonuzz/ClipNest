@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+  padding: 15px;
+  width: 380px;
+  transition: background 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+
+body.dark {
+  background-color: #1e1e2f;
+  color: #eee;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 6px;
+  transition: transform 0.3s;
+}
+
+.header-buttons button:hover {
+  transform: rotate(20deg);
+}
+
+.animated-btn {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 242, 255, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.animated-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 242, 255, 0.6);
+}
+
+.snippets-container {
+  margin-top: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Scrollbar */
+.snippets-container::-webkit-scrollbar {
+  width: 6px;
+}
+.snippets-container::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 10px;
+}
+
+/* Snippet Card */
+.snippet {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+body.dark .snippet {
+  background: rgba(30, 30, 40, 0.7);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.snippet .time {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.snippet .content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.deleteBtn {
+  background: #ff5e5e;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.deleteBtn:hover {
+  background: #e04343;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  animation: fadeInOut 2s ease;
+  font-weight: 500;
+}
+
+@keyframes fadeInOut {
+  0%,100% {opacity: 0; transform: translate(-50%, 20px);}
+  10%,90% {opacity: 1; transform: translate(-50%, 0);}
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
